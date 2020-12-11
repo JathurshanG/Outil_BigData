@@ -20,10 +20,12 @@ print(word.collect())
 
 count=word.flatMap(lambda line: line.split(" "))
 #dans cette étape on considère comme donnée chaque mots, l'éspace étant
-count = count.map(lambda word: (word, 1))
+count1 = count.map(lambda word: (word, 1))
 #Creation d'un tuple permettant de compte chaque mots
-count=count.reduceByKey(lambda a,b:a +b)
+count2 = count1.reduceByKey(lambda a,b:a +b)
 #on associe a chaque le nombre de fois où apparaît le mots
 
-for x in count.collect():
+for x in count2.collect():
     print(x)
+#Récupération du tuple sous forme de fichier texte
+count2.coalesce(1).saveAsTextFile("countWord.txt")
