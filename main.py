@@ -15,17 +15,16 @@ from pyspark import SparkContext, SparkConf
 conf =SparkConf().setAppName("wordCount").setMaster("local")
 sc = SparkContext(conf=conf)
 
-word=sc.textFile("sample.txt")
+word=sc.textFile("C:/Users/admin/Desktop/Outils Big Data/Projet/sample.txt")
 print(word.collect())
 
 count=word.flatMap(lambda line: line.split(" "))
 #dans cette étape on considère comme donnée chaque mots, l'éspace étant
-count1 = count.map(lambda word: (word, 1))
+counts = count.map(lambda word: (word, 1))
 #Creation d'un tuple permettant de compte chaque mots
-count2 = count1.reduceByKey(lambda a,b:a +b)
+res = count1.reduceByKey(lambda a,b:a +b)
 #on associe a chaque le nombre de fois où apparaît le mots
 
-for x in count2.collect():
-    print(x)
+res.collect()
 #Récupération du tuple sous forme de fichier texte
-count2.coalesce(1).saveAsTextFile("countWord.txt")
+res.coalesce(1).saveAsTextFile("countWord.txt")
