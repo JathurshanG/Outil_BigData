@@ -6,4 +6,4 @@
  Ci-joint la capture d'écran du code python et ses sorties
  
  
-![Capture d'écran](https://user-images.githubusercontent.com/71498491/101843278-263bbd00-3b4a-11eb-8e9d-63ee28280012.png)
+![Capture d'écran](https://user-images.githubusercontent.com/71134499/101933725-e376f500-3bdc-11eb-8468-222c07c06e35.jpg)
